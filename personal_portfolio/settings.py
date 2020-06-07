@@ -24,12 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = ['*']
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jk1m_6doufqcpby$iys*64%$#k9@)qzvp#-!7@j85yobsj3p^m'
+# SECRET_KEY = 'jk1m_6doufqcpby$iys*64%$#k9@)qzvp#-!7@j85yobsj3p^m'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'jk1m_6doufqcpby$iys*64%$#k9@)qzvp#-!7@j85yobsj3p^m')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-portfolio-demo.herokuapp.com','127.0.0.1']
 
 
 # Application definition
